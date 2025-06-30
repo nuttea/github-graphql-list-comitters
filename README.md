@@ -1,6 +1,22 @@
 # GitHub Unique Contributor Counter & Lister
 
-A powerful shell script to calculate the total number of **unique** contributors across one or more GitHub repositories. It aggregates contributor lists, de-duplicates them, and then provides both a final count and a complete, alphabetized list of every unique contributor's login.
+## TL;DR
+
+This is a shell script that finds all unique contributors across one or more GitHub repositories.
+
+1.  **Prerequisites**: `curl` and `jq`.
+2.  **Setup**: Export your GitHub Personal Access Token:
+    ```sh
+    export PAT="ghp_YourTokenHere"
+    ```
+3.  **Run**:
+    -   **By arguments**: `./count_unique_contributors.sh actions/checkout actions/setup-node`
+    -   **From a file**: `cat my-repos.txt | ./count_unique_contributors.sh`
+4.  **Output**: You get a total count of unique contributors and an alphabetized list of their logins. Raw API responses are saved in a `./tmp` directory for validation.
+
+## What does this script do?
+
+A shell script to calculate the total number of **unique** contributors across one or more GitHub repositories. It aggregates contributor lists, de-duplicates them, and then provides both a final count and a complete, alphabetized list of every unique contributor's login.
 
 For validation and further analysis, the script saves the raw JSON response for **every page** of API results to a local `./tmp` directory.
 
